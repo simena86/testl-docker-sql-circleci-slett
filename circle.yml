@@ -7,7 +7,7 @@ machine:
 test:
   override:
     - docker build -t db-container:latest .
-      docker run \
+    - docker run \
           --net=host \
           --env MYSQL_HOST=localhost \
           --env MYSQL_PORT=3306 \
