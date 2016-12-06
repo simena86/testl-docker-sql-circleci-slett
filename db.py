@@ -5,7 +5,7 @@ import _mysql
 import sys
 
 try:
-    con = _mysql.connect('localhost', 'ubuntu', '', 'circleci_test')
+    con = _mysql.connect('localhost', 'ubuntu', '', 'circle_test')
         
     con.query("SELECT VERSION()")
     result = con.use_result()
