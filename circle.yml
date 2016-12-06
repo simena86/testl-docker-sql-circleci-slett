@@ -7,4 +7,4 @@ machine:
 test:
   override:
     - docker build -t db-container:latest .
-    - docker run db-container:latest --net=host
+    - docker run --net=host db-container:latest
