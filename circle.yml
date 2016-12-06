@@ -7,9 +7,9 @@ machine:
 test:
   override:
 
-    #- docker run -p 3306:3306 --net=host db-container:latest
     - netstat -ln | awk '/mysql(.*)?\.sock/ { print $9 }'
     - mysql -u ubuntu -e "show databases"
     - docker build -t db-container:latest .
-    - docker run --name test -v /var/run/mysqld/mysqld.sock:/var/run/mysqld/mysqld.sock db-container:latest 
-    - docker logs test
+    - docker run -i --net=host db-container:latest
+    #- docker run --name test -v /var/run/mysqld/mysqld.sock:/var/run/mysqld/mysqld.soc db-container:latest 
+    #- docker logs test

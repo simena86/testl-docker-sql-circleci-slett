@@ -4,8 +4,10 @@
 import _mysql
 import sys
 
+host = '127.0.0.1'
+
 try:
-    con = _mysql.connect('localhost', 'ubuntu', '', 'circle_test')
+    con = _mysql.connect(host, 'ubuntu', '', 'circle_test')
         
     con.query("SELECT VERSION()")
     result = con.use_result()
