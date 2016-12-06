@@ -1,0 +1,16 @@
+machine:
+  services:
+    - docker
+    - mysql
+
+
+  test:
+    override:
+      - docker build -t db-container:latest .
+        docker run \
+            --net=host \
+            --env MYSQL_HOST=localhost \
+            --env MYSQL_PORT=3306 \
+            --env MYSQL_DATABASE=circle_test \
+            --env MYSQL_USERNAME=ubuntu \
+            db-container:latest
