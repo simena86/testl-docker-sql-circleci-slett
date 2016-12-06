@@ -11,4 +11,5 @@ test:
     - netstat -ln | awk '/mysql(.*)?\.sock/ { print $9 }'
     - mysql -u ubuntu -e "show databases"
     - docker build -t db-container:latest .
-    - docker run -v /var/run/mysqld/mysqld.sock:/var/run/mysqld/mysqld.sock db-container:latest 
+    - docker run --name test -v /var/run/mysqld/mysqld.sock:/var/run/mysqld/mysqld.sock db-container:latest 
+    - docker logs test
